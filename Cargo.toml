@@ -1,0 +1,30 @@
+[package]
+name = "minicel-rs"
+description = "A minimal excel-like formulas engine written in Rust without UI"
+version = "0.1.0"
+edition = "2021"
+authors = ["Awiteb <awiteb@hotmail.com>"]
+license = "MIT"
+repository = "https://github.com/theawiteb/minicel-rs"
+readme = "README.md"
+rust-version = "1.65.0"
+default-run = "minicel"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+bigdecimal = "0.4.2"
+csv = "1.3.0"
+log = "0.4.20"
+multipeek = "0.1.2"
+pretty_env_logger = "0.5.0"
+
+[[bin]]
+name = "minicel"
+path = "src/main.rs"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
